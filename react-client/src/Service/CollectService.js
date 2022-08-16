@@ -5,7 +5,7 @@ const COLLECT_REST_API_URL = 'http://localhost:8080/collects';
 class CollectService {
 
     getCollect() {
-        return axios.get(COLLECT_REST_API_URL);
+        return axios.get(COLLECT_REST_API_URL, 1000);
     }
 }
 

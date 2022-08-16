@@ -12,9 +12,11 @@ class CollectComponent extends React.Component {
     }
 
     componentDidMount() {
-        CollectService.getCollect().then((response) => {
+        setInterval(        CollectService.getCollect().then((response) => {
             this.setState({ collects: response.data })
-        });
+        }) ,1000)
+
+
     }
 
     render() {
@@ -24,7 +26,6 @@ class CollectComponent extends React.Component {
                 <table>
                     <thead>
                         <tr>
-
                             <td> Id</td>
                             <td> Name</td>
                             <td> Description</td>
@@ -32,7 +33,6 @@ class CollectComponent extends React.Component {
                             <td> Condition1</td>
                             <td> Condition2</td>
                         </tr>
-
                     </thead>
                     <tbody>
                         {

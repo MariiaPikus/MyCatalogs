@@ -1,33 +1,74 @@
 package maria.pikus.MyCatalogs.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
 @Entity
-@Table(name = "collections")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Table(schema = "public", name = "collection1")
 public class Collection {
     @Id
-    @GeneratedValue(generator = "collections_seq")
-    @SequenceGenerator(name = "collections_seq", sequenceName = "collections_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    @Column(name = "user_id")
-    private Long userId;
-
-    @Column(name = "topic_id")
-    private Integer topicId;
-
-    @Column(name = "name")
+    @NotBlank(message = "nameErr")
     private String name;
-
-    @Column(name = "description")
     private String description;
+    private String theme;
 
+    @OneToMany(mappedBy = "collection", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Item> items;
+
+    public Collection(String name, String description, String theme) {
+
+        this.name = name;
+        this.description = description;
+        this.theme = theme;
+    }
+
+    public Collection() {
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getTheme() {
+        return theme;
+    }
+
+    public void setTheme(String theme) {
+        this.theme = theme;
+    }
+
+
+    public Set<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(Set<Item> items) {
+        this.items = items;
+    }
 }

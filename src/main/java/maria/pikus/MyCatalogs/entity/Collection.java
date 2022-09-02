@@ -1,12 +1,14 @@
 package maria.pikus.MyCatalogs.entity;
 
+import org.commonmark.node.Node;
+import org.commonmark.parser.Parser;
+import org.commonmark.renderer.html.HtmlRenderer;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
 @Entity
-@Table(schema = "public", name = "collection1")
 public class Collection {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,12 +17,13 @@ public class Collection {
     private String name;
     private String description;
     private String theme;
-
+    @ManyToOne(fetch = FetchType.EAGER)
+    private User owner;
     @OneToMany(mappedBy = "collection", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Item> items;
 
-    public Collection(String name, String description, String theme) {
-
+    public Collection(String name, String description, String theme, User user) {
+        this.owner = user;
         this.name = name;
         this.description = description;
         this.theme = theme;
@@ -50,9 +53,15 @@ public class Collection {
         return description;
     }
 
-
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getHtmlDescription() {
+        Parser parser = Parser.builder().build();
+        HtmlRenderer renderer = HtmlRenderer.builder().build();
+        Node document = parser.parse(description);
+        return renderer.render(document);
     }
 
     public String getTheme() {
@@ -63,6 +72,13 @@ public class Collection {
         this.theme = theme;
     }
 
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
 
     public Set<Item> getItems() {
         return items;

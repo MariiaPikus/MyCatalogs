@@ -1,4 +1,4 @@
-package maria.pikus.MyCatalogs.Utils;
+package maria.pikus.MyCatalogs.utils;
 
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;

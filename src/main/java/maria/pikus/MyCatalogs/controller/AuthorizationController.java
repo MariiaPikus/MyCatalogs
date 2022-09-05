@@ -1,7 +1,7 @@
 package maria.pikus.MyCatalogs.controller;
 
 
-import maria.pikus.MyCatalogs.Utils.ControllerUtils;
+import maria.pikus.MyCatalogs.utils.ControllerUtils;
 import maria.pikus.MyCatalogs.entity.User;
 import maria.pikus.MyCatalogs.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

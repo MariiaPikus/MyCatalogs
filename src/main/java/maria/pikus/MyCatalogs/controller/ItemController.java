@@ -1,6 +1,6 @@
 package maria.pikus.MyCatalogs.controller;
 
-import maria.pikus.MyCatalogs.Utils.ControllerUtils;
+import maria.pikus.MyCatalogs.utils.ControllerUtils;
 import maria.pikus.MyCatalogs.entity.Collection;
 import maria.pikus.MyCatalogs.entity.Item;
 import maria.pikus.MyCatalogs.entity.Tag;

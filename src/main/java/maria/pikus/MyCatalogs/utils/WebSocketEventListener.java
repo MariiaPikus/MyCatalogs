@@ -1,4 +1,4 @@
-package maria.pikus.MyCatalogs.Utils;
+package maria.pikus.MyCatalogs.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

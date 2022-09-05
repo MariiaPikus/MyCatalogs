@@ -22,7 +22,7 @@ public class MainPageController {
         model.addAttribute("maxSizeCollection", collectionService.getMaxSizeCollection());
         model.addAttribute("tags", tagService.getAllTags());
         model.addAttribute("lastAddedItems", itemService.getLastAddedItems());
-        return "";
+        return "main";
     }
 
 }

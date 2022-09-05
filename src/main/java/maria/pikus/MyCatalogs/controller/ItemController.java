@@ -1,6 +1,5 @@
 package maria.pikus.MyCatalogs.controller;
 
-import maria.pikus.MyCatalogs.utils.ControllerUtils;
 import maria.pikus.MyCatalogs.entity.Collection;
 import maria.pikus.MyCatalogs.entity.Item;
 import maria.pikus.MyCatalogs.entity.Tag;
@@ -8,6 +7,7 @@ import maria.pikus.MyCatalogs.entity.User;
 import maria.pikus.MyCatalogs.service.CollectionService;
 import maria.pikus.MyCatalogs.service.CommentService;
 import maria.pikus.MyCatalogs.service.ItemService;
+import maria.pikus.MyCatalogs.utils.ControllerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
